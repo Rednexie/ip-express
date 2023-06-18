@@ -11,4 +11,4 @@ The API provides the following endpoints:
 
 "/json/<variable>": This endpoint allows you to customize the variable name in the JSON response. Replace <variable> in the path with your preferred variable name. The response will be a JSON object with your specified variable name as the key and the IP address as the value. You can access this endpoint by sending an HTTP GET request to the "/json/<variable>" path.
 
-I also covered the usage in vanilla javascript, see [usage.js]https://github.com/Rednexie/ip/blob/main/usage.js.
+I also covered the usage in vanilla javascript, see [usage.js](https://github.com/Rednexie/ip/blob/main/usage.js).
