@@ -56,10 +56,14 @@ app.get("/json", (req, res) => {
 })
 
 app.get("/json/:id", (req, res) => {
+  const id = req.params.id
   const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  const ip = ipp.replace("::ffff:", "")
-  res.json(`${req.params.id}: ${ip}`);
+  const ip = ipp.replace("::ffff:", "-local-")
+  return res.json({
+    id: ip
+  });
 })
+
 
 
 
