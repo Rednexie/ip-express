@@ -16,11 +16,11 @@ fetch("//ip.rednexie.repl.co/json/userIPAddress").then(response => response.json
 // with XMLHTTP, as text
 var req = new XMLHttpRequest()
 req.open("GET","https://ip.rednexie.repl.co/text");
-req.send();
 req.onreadystatechange = () => { 
 if(req.status == 200) ip = req.response;
 else console.error("Error with the IP API")
 }
+req.send();
 
 
 
@@ -29,22 +29,23 @@ else console.error("Error with the IP API")
 // with XMLHTTP, as json
 var req = new XMLHttpRequest()
 req.open("GET","https://ip.rednexie.repl.co/json");
-req.send();
 req.onreadystatechange = () => { 
 if(req.status == 200) ip = req.response;
 else console.error("Error with the IP API")
 }
+req.send();
 
 
 
 // with XMLHTTP, as object
-var req = new XMLHttpRequest()
-req.open("GET","https://ip.rednexie.repl.co/json/object");
-req.send();
-req.onreadystatechange = () => { 
-if(req.status == 200) ip = req.response.object;
-else console.error("Error with the IP API")
-}
-
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "//ip.rednexie.repl.co/json/userIPAddress", true);
+xhr.onreadystatechange = () => {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    let data = JSON.parse(xhr.responseText);
+    ip = data.userIPAddress;
+  }
+};
+xhr.send();
 
 
