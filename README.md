@@ -9,7 +9,7 @@ The API provides the following endpoints:
 
 "/json": This endpoint returns the IP address as a JSON object. The JSON object contains a single value, where the value is the ip address. You can access this endpoint by sending an HTTP GET request to the "/json" path.
 
-"/json/<variable>": This endpoint allows you to customize the variable name in the JSON response. Replace <variable> in the path with your preferred variable name. The response will be a JSON object with your specified variable name as the key and the IP address as the value. You can access this endpoint by sending an HTTP GET request to the "/json/<variable>" path.
+"/json/ <variable>": This endpoint allows you to customize the variable name in the JSON response. Replace <variable> in the path with your preferred variable name. The response will be a JSON object with your specified variable name as the key and the IP address as the value. You can access this endpoint by sending an HTTP GET request to the "/json/<variable>" path.
 # Usage
 
 I also covered the usage in vanilla javascript, see [usage.js](https://github.com/Rednexie/ip/blob/main/usage.js).
