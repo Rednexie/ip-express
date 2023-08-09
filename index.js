@@ -11,7 +11,7 @@ app.use(cors())
 app.use(useragent.express())
 
 app.use((req, res, next) => {
-  const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const ip = ipp.replace("::ffff:", "")
   const browser = req.useragent.browser;
   const version = req.useragent.version;
@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 //                               API  
 // --------------------------------------------------------------------------------------------------------------------
 app.get("/api", (req, res) => {
-  const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const ip;
   if(ipp == "::1"){
     ip = "localhost"
@@ -43,19 +43,19 @@ app.get("/api", (req, res) => {
 })
 
 app.get("/text", (req, res) => {
-  const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const ip = ipp.replace("::ffff:", "")
   res.status(200).send(ip)
 })
 app.get("/json", (req, res) => {
-  const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const ip = ipp.replace("::ffff:", "")
   res.json(ip)
 })
 
 app.get("/json/:id", (req, res) => {
   const id = req.params.id
-  const ipp = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
   const ip = ipp.replace("::ffff:", "-local-")
   return res.json({
     id: ip
