@@ -1,5 +1,3 @@
-
-const http = require("http")
 const cors = require("cors");
 const express = require("express")
 const useragent = require("express-useragent")
