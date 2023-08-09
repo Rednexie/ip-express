@@ -2,7 +2,7 @@ const cors = require("cors");
 const express = require("express")
 const useragent = require("express-useragent")
 const app = express();
-
+const port = 80;
 // Modules
 const consoled = require("consoled.js"); // I am in love with this module, since it's made by me(narcissistic rizz)
 
@@ -64,8 +64,6 @@ app.get("/json/:id", (req, res) => {
 
 
 
-
-const httpServer = http.createServer(app)
-const server = httpServer.listen(80, () => {
+const server = app.listen(port, () => {
   consoled.blue("HTTP Server created on port " + server.address().port)
 })
