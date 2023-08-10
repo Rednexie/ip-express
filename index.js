@@ -11,7 +11,7 @@ app.use(cors())
 app.use(useragent.express())
 
 app.use((req, res, next) => {
-  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
+  const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];;
   const ip = ipp.replace("::ffff:", "")
   const browser = req.useragent.browser;
   const version = req.useragent.version;
