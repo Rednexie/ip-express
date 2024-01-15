@@ -4,7 +4,7 @@ const useragent = require("express-useragent")
 const app = express();
 const port = 80;
 // Modules
-const consoled = require("consoled.js"); // I am in love with this module, since it's made by me(narcissistic rizz)
+const consoled = require("consoled.js");
 
 app.use(cors())
 
