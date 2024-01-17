@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "name": "ip-express",
+  "description": "Basic IP API using node.js",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm exec nodemon -q .",
+    "build": "npm i",
+    "push": "git add . && git commit && git push",
+    "dev": "npm i -D nodemon && nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https//github.com/Rednexie/ip-express"
+  },
+  "author": "Rednexie",
+  "license": "MIT"
+}
+
