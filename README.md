@@ -12,8 +12,11 @@ Basic IP API using node.js and express
 /json/:id => ip as json: ` { "$id": "0.0.0.0" }`
 
 ### Configuration
-log: whether to save the requests to a text file. default is true
-port: the http port to start the webserver and listen on. default is 3000
+log: whether to save the requests to a text file. default is `true`
+
+
+
+port: the http port to start the webserver and listen on. default is `3000`
 
 ### License
 ip-express is licensed under MIT.
