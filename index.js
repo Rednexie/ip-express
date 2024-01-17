@@ -1,8 +1,6 @@
 const app = require("express")()
 const fs = require('fs');
 
-
-
 const port = 3000;
 const log = true
 
@@ -70,12 +68,18 @@ app.get("/text", (req, res) => {
   const ip = ipp.replace("::ffff:", "")
   res.status(200).send(ip)
 })
+
 app.get("/json", (req, res) => {
   const ipp = req.ip;
   const ip = ipp.replace("::ffff:", "")
   res.json({ip})
 })
-
+app.get("/ips", async (req, res) => {
+    res.json(req.ips)
+})
+app.get("/ips", async (req, res) => {
+    res.send(req.ip)
+})
 app.get("/json/:id", (req, res) => {
   const id = req.params.id
   const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
