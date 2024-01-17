@@ -77,7 +77,7 @@ app.get("/json", (req, res) => {
 app.get("/ips", async (req, res) => {
     res.json(req.ips)
 })
-app.get("/ips", async (req, res) => {
+app.get("/ip", async (req, res) => {
     res.send(req.ip)
 })
 app.get("/json/:id", (req, res) => {
