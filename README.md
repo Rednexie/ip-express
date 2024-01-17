@@ -5,7 +5,7 @@ Basic IP API using node.js and express
 - `cors`
 - `node:fs`
 ### Endpoints
-/ip => ip as text<br>
+/ip => ip as text: 0.0.0.0<br>
 /ips => ips as text<br>
 /text => ip as text<br>
 /json => ip as json: `{ "ip": "0.0.0.0" }`<br>
