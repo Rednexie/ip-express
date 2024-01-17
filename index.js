@@ -11,7 +11,6 @@ app.set('trust proxy', true)
 app.set('json spaces', 2);
 app.set('etag', false);
 app.disable('x-powered-by');
-
 app.use(require('cors')())
 
 
@@ -45,11 +44,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-
-
-
 app.use((req, res, next) => {
   if(log){
     fs.appendFile('./logs', `[${new Date().toLocaleString()}] ${req.ip}: ${req.method} => ${req.originalUrl}`, (err) => {
@@ -60,11 +54,6 @@ app.use((req, res, next) => {
   next()
 })
 
-// --------------------------------------------------------------------------------------------------------------------
-//            IP 
-//                     V4
-//                               API  
-// --------------------------------------------------------------------------------------------------------------------
 app.get("/api", (req, res) => {
   let ip;
   const ipp = req.ip;
