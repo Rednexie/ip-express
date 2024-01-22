@@ -1,8 +1,6 @@
 const app = require("express")()
 const fs = require('fs');
 
-
-
 const port = 3000;
 const log = true
 
@@ -11,7 +9,6 @@ app.set('trust proxy', true)
 app.set('json spaces', 2);
 app.set('etag', false);
 app.disable('x-powered-by');
-
 app.use(require('cors')())
 
 
@@ -45,11 +42,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-
-
-
 app.use((req, res, next) => {
   if(log){
     fs.appendFile('./logs', `[${new Date().toLocaleString()}] ${req.ip}: ${req.method} => ${req.originalUrl}`, (err) => {
@@ -60,11 +52,6 @@ app.use((req, res, next) => {
   next()
 })
 
-// --------------------------------------------------------------------------------------------------------------------
-//            IP 
-//                     V4
-//                               API  
-// --------------------------------------------------------------------------------------------------------------------
 app.get("/api", (req, res) => {
   let ip;
   const ipp = req.ip;
@@ -81,12 +68,18 @@ app.get("/text", (req, res) => {
   const ip = ipp.replace("::ffff:", "")
   res.status(200).send(ip)
 })
+
 app.get("/json", (req, res) => {
   const ipp = req.ip;
   const ip = ipp.replace("::ffff:", "")
   res.json({ip})
 })
-
+app.get("/ips", async (req, res) => {
+    res.json(req.ips)
+})
+app.get("/ip", async (req, res) => {
+    res.send(req.ip)
+})
 app.get("/json/:id", (req, res) => {
   const id = req.params.id
   const ipp = req.connection.remoteAddress || req.headers['x-forwarded-for'];
